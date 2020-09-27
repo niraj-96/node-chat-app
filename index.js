@@ -3,22 +3,19 @@ const mongoose = require('mongoose');
 const formidable = require('express-formidable');
 const db = require('./config/database.config');
 const cors = require('cors');
-const path = require('path');
 
 const app = express();
 
 var corsOptions = {
-  origin: "*"
+  origin: "https://angular-9-chat-app.web.app"
 };
-
-app.use(cors(corsOptions));
 app.use(formidable());
-
-// app.use(function (req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "https://angular-9-chat-app.web.app");
-//   res.header("Access-Control-Allow-Headers", "Origin,X-Requested-with, Content-Type,Accept");
-//   next();
-// });
+app.use(cors(corsOptions));
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin,X-Requested-with, Content-Type,Accept");
+  next();
+});
 
 mongoose.Promise = global.Promise;
 // Connecting to the database

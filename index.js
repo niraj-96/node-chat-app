@@ -8,11 +8,11 @@ const path = require('path');
 const app = express();
 
 var corsOptions = {
-  origin: "https://angular-9-chat-app.web.app"
+  origin: "*"
 };
 
+app.use(cors(corsOptions));
 app.use(formidable());
-app.use(cors());
 
 // app.use(function (req, res, next) {
 //   res.header("Access-Control-Allow-Origin", "https://angular-9-chat-app.web.app");

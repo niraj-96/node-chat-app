@@ -9,7 +9,7 @@ const app = express();
 var corsOptions = {
   origin: "https://angular-9-chat-app.web.app"
 };
-app.use(formidable());
+
 app.use(cors(corsOptions));
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -17,6 +17,7 @@ app.use(function (req, res, next) {
   next();
 });
 
+app.use(formidable());
 mongoose.Promise = global.Promise;
 // Connecting to the database
 mongoose.connect(db.dburl, {

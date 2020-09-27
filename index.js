@@ -12,13 +12,13 @@ var corsOptions = {
 };
 
 app.use(formidable());
-app.use(cors(corsOptions));
+app.use(cors());
 
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "https://angular-9-chat-app.web.app");
-  res.header("Access-Control-Allow-Headers", "Origin,X-Requested-with, Content-Type,Accept");
-  next();
-});
+// app.use(function (req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "https://angular-9-chat-app.web.app");
+//   res.header("Access-Control-Allow-Headers", "Origin,X-Requested-with, Content-Type,Accept");
+//   next();
+// });
 
 mongoose.Promise = global.Promise;
 // Connecting to the database

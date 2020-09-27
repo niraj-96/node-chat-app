@@ -5,9 +5,7 @@ const db = require('./config/database.config');
 const cors = require('cors');
 const path = require('path');
 
-
 const app = express();
-
 
 var corsOptions = {
   origin: "*"
@@ -16,11 +14,11 @@ var corsOptions = {
 app.use(formidable());
 app.use(cors(corsOptions));
 
-// app.use(function (req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Headers", "Origin,X-Requested-with, Content-Type,Accept");
-//   next();
-// });
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin,X-Requested-with, Content-Type,Accept");
+  next();
+});
 
 mongoose.Promise = global.Promise;
 // Connecting to the database
@@ -35,9 +33,7 @@ mongoose.connect(db.dburl, {
 });
 
 // app.get('/',(req,res)=>{
-
 //     res.sendFile(path.join(__dirname+'/template/login.html'));
-
 // });
 
 require('./routes/user.routes')(app);

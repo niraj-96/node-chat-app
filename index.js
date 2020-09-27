@@ -7,7 +7,7 @@ const cors = require('cors');
 const app = express();
 
 var corsOptions = {
-  origin: "https://angular-9-chat-app.web.app"
+  origin: "*"
 };
 
 app.use(cors(corsOptions));

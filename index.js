@@ -24,7 +24,7 @@ app.use(cors(corsOptions));
 
 mongoose.Promise = global.Promise;
 // Connecting to the database
-mongoose.connect(db.url, {
+mongoose.connect(db.dburl, {
     useNewUrlParser: true,
     useUnifiedTopology:true
 }).then(() => {

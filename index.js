@@ -32,9 +32,6 @@ mongoose.connect(db.dburl, {
     process.exit();
 });
 
-// app.get('/',(req,res)=>{
-//     res.sendFile(path.join(__dirname+'/template/login.html'));
-// });
 
 require('./routes/user.routes')(app);
 

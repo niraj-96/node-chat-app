@@ -17,7 +17,7 @@ app.use(function (req, res, next) {
 });
 
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use(formidable());
 mongoose.Promise = global.Promise;

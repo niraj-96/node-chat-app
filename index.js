@@ -7,8 +7,8 @@ const { dburl } = require('./config/database.config');
 
 const app = express();
 
-var corsOptions = {
-  origin: "*"
+const corsOptions = {
+  origin: "https://angular-9-chat-app.web.app"
 };
 
 // app.use(function (req, res, next) {

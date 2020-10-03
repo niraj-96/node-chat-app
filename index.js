@@ -11,12 +11,12 @@ const corsOptions = {
   origin: "https://angular-9-chat-app.web.app"
 };
 
-// app.use(function(req, res, next) {
-// res.header("Access-Control-Allow-Origin", "https://angular-9-chat-app.web.app"); // update to match the domain you will make the request from
-// res.header("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, POST, DELETE, OPTION");
-// res.header("Access-Control-Allow-Headers", "Content-Type");
-// next();
-// });
+app.use(function(req, res, next) {
+res.header("Access-Control-Allow-Origin", "https://angular-9-chat-app.web.app"); // update to match the domain you will make the request from
+res.header("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, POST, DELETE, OPTION");
+res.header("Access-Control-Allow-Headers", "Content-Type");
+next();
+});
 
 
 

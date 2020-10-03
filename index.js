@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const formidable = require('express-formidable');
 const db = require('./config/database.config');
 const cors = require('cors');
-const { dburl } = require('./config/database.config');
 
 const app = express();
 
@@ -16,12 +15,12 @@ const corsOptions = {
 //   next();
 // });
 // app.use(cors(corsOptions));
-app.options('*', cors());
+
 
 //app.use(formidable());
 mongoose.Promise = global.Promise;
 // Connecting to the database
-mongoose.connect(dburl.url, {
+mongoose.connect(db.dburl, {
     useNewUrlParser: true,
     useUnifiedTopology:true
 }).then(() => {

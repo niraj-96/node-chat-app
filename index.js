@@ -4,6 +4,7 @@ const formidable = require('express-formidable');
 const db = require('./config/database.config');
 let cors = require('cors');
 const app = express();
+app.use(formidable());
 app.use(cors());
 
 const corsOptions = {
@@ -18,7 +19,7 @@ const corsOptions = {
 // });
 
 
-app.use(formidable());
+
 mongoose.Promise = global.Promise;
 // Connecting to the database
 mongoose.connect(db.dburl, {

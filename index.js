@@ -11,11 +11,12 @@ const corsOptions = {
   origin: "https://angular-9-chat-app.web.app"
 };
 
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  next();
-});
-app.use(cors(corsOptions));
+// app.use(function (req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   next();
+// });
+// app.use(cors(corsOptions));
+app.options('*', cors());
 
 //app.use(formidable());
 mongoose.Promise = global.Promise;

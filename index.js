@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const formidable = require('express-formidable');
 const db = require('./config/database.config');
 const cors = require('cors');
+const { dburl } = require('./config/database.config');
 
 const app = express();
 
@@ -10,17 +11,18 @@ var corsOptions = {
   origin: "*"
 };
 
+
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin,X-Requested-with, Content-Type,Accept");
+  next();
+});
 app.use(cors(corsOptions));
-// app.use(function (req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Headers", "Origin,X-Requested-with, Content-Type,Accept");
-//   next();
-// });
 
 app.use(formidable());
 mongoose.Promise = global.Promise;
 // Connecting to the database
-mongoose.connect(db.dburl, {
+mongoose.connect(dburl.url, {
     useNewUrlParser: true,
     useUnifiedTopology:true
 }).then(() => {

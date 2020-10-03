@@ -107,7 +107,7 @@ exports.getMessages = async(data)=>{
         let msgArr = await Chat.find({chat_room_id:chatRoomID});
         for(let obj of msgArr){
             let sender = await User.findById(obj['sendById']);
-            let modified = {id:obj['_id'], sendById:obj['sendById'], senderName:sender['name'],  message: obj['msg'], timeStamp: obj['date']}
+            let modified = {id:obj['_id'], sendById:obj['sendById'], sendToId:obj['sendToId'],  messageType:obj['msg_type'], senderName:sender['name'],  message: obj['msg'], timeStamp: obj['date']}
             messageArr.push(modified);
         }
     
@@ -122,7 +122,6 @@ exports.addChat = async(data)=>{
     let sendToId = data['sendToId'];
     let chatPair = [];
 
-    
     chatPair.push(sendById);
     chatPair.push(sendToId);
 
@@ -160,7 +159,7 @@ exports.addChat = async(data)=>{
     let obj = await chatModel.save();
 
     let sender = await User.findById(obj['sendById']);
-    let modified = {id:obj['_id'], sendById:obj['sendById'], senderName:sender['name'],  message: obj['msg'], timeStamp: obj['date']}
+    let modified = {id:obj['_id'], sendById:obj['sendById'],sendToId:obj['sendToId'], messageType:obj['msg_type'], senderName:sender['name'],  message: obj['msg'], timeStamp: obj['date']}
     console.log('sendt', modified);
     return modified;
 

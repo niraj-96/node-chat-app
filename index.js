@@ -5,7 +5,7 @@ const db = require('./config/database.config');
 let cors = require('cors');
 const app = express();
 app.use(formidable());
-app.use(cors());
+// app.use(cors());
 
 const corsOptions = {
   origin: "https://angular-9-chat-app.web.app"

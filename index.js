@@ -32,6 +32,10 @@ mongoose.connect(db.dburl, {
     process.exit();
 });
 
+app.get('/', (req,res)=>{
+
+    res.send('zxvzxvzx');
+});
 
 require('./routes/user.routes')(app);
 
